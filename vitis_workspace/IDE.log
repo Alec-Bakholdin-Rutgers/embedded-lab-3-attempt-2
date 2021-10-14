@@ -1,0 +1,165 @@
+22:01:09 INFO  : Platform repository initialization has completed.
+22:01:09 INFO  : Launching XSCT server: xsct -n  -interactive /home/user/lab3/vitis_workspace/temp_xsdb_launch_script.tcl
+22:01:09 INFO  : Registering command handlers for Vitis TCF services
+22:01:12 INFO  : XSCT server has started successfully.
+22:01:12 INFO  : plnx-install-location is set to ''
+22:01:12 INFO  : Successfully done setting XSCT server connection channel  
+22:01:12 INFO  : Successfully done setting workspace for the tool. 
+22:01:12 INFO  : Successfully done query RDI_DATADIR 
+22:01:44 INFO  : Result from executing command 'getProjects': ip_design_wrapper
+22:01:44 INFO  : Result from executing command 'getPlatforms': 
+22:01:44 WARN  : An unexpected exception occurred in the module 'platform project logging'
+22:01:44 INFO  : Platform 'ip_design_wrapper' is added to custom repositories.
+22:01:52 INFO  : Platform 'ip_design_wrapper' is added to custom repositories.
+22:02:59 INFO  : Result from executing command 'getProjects': ip_design_wrapper
+22:02:59 INFO  : Result from executing command 'getPlatforms': ip_design_wrapper|/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/ip_design_wrapper.xpfm
+22:03:02 INFO  : Checking for BSP changes to sync application flags for project 'adventures_with_ip'...
+22:10:07 INFO  : Result from executing command 'getProjects': ip_design_wrapper
+22:10:07 INFO  : Result from executing command 'getPlatforms': ip_design_wrapper|/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/ip_design_wrapper.xpfm
+22:10:10 INFO  : Checking for BSP changes to sync application flags for project 'adventures_with_ip'...
+22:11:19 INFO  : Saving repository preferences.
+22:11:19 INFO  : Reading in cores from local repositories: 
+		 /home/user/lab3/ip_repo/xilinx_com_hls_nco_1_0
+		 /home/user/lab3/ip_repo/led_controller_1.0
+		 /home/user/lab3/ip_repo
+22:11:19 INFO  : Cleaning BSP projects in the workspace.
+22:11:26 INFO  : Result from executing command 'getProjects': ip_design_wrapper
+22:11:26 INFO  : Result from executing command 'getPlatforms': ip_design_wrapper|/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/ip_design_wrapper.xpfm
+22:11:29 INFO  : Checking for BSP changes to sync application flags for project 'adventures_with_ip'...
+22:12:37 INFO  : Checking for BSP changes to sync application flags for project 'adventures_with_ip'...
+22:13:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:13:03 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42D4BA" && level==0 && jtag_device_ctx=="jsn-Zybo-210279A42D4BA-13722093-0"}' command is executed.
+22:13:04 INFO  : Device configured successfully with "/home/user/lab3/vitis_workspace/adventures_with_ip/_ide/bitstream/ip_design_wrapper.bit"
+22:13:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:13:15 INFO  : Jtag cable 'Digilent Zybo 210279A42D4BA' is selected.
+22:13:15 INFO  : 'jtag frequency' command is executed.
+22:13:15 INFO  : Context for 'APU' is selected.
+22:13:15 INFO  : System reset is completed.
+22:13:18 INFO  : 'after 3000' command is executed.
+22:13:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42D4BA" && level==0 && jtag_device_ctx=="jsn-Zybo-210279A42D4BA-13722093-0"}' command is executed.
+22:13:19 INFO  : Device configured successfully with "/home/user/lab3/vitis_workspace/adventures_with_ip/_ide/bitstream/ip_design_wrapper.bit"
+22:13:19 INFO  : Context for 'APU' is selected.
+22:13:19 INFO  : Hardware design and registers information is loaded from '/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/hw/ip_design_wrapper.xsa'.
+22:13:19 INFO  : 'configparams force-mem-access 1' command is executed.
+22:13:19 INFO  : Context for 'APU' is selected.
+22:13:19 INFO  : Sourcing of '/home/user/lab3/vitis_workspace/adventures_with_ip/_ide/psinit/ps7_init.tcl' is done.
+22:13:20 INFO  : 'ps7_init' command is executed.
+22:13:20 INFO  : 'ps7_post_config' command is executed.
+22:13:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:13:20 INFO  : The application '/home/user/lab3/vitis_workspace/adventures_with_ip/Debug/adventures_with_ip.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:13:20 INFO  : 'configparams force-mem-access 0' command is executed.
+22:13:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42D4BA" && level==0 && jtag_device_ctx=="jsn-Zybo-210279A42D4BA-13722093-0"}
+fpga -file /home/user/lab3/vitis_workspace/adventures_with_ip/_ide/bitstream/ip_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/hw/ip_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/user/lab3/vitis_workspace/adventures_with_ip/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/user/lab3/vitis_workspace/adventures_with_ip/Debug/adventures_with_ip.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:13:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:13:20 INFO  : 'con' command is executed.
+22:13:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:13:20 INFO  : Launch script is exported to file '/home/user/lab3/vitis_workspace/adventures_with_ip_system/_ide/scripts/debugger_adventures_with_ip-default.tcl'
+22:16:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:16:28 INFO  : Jtag cable 'Digilent Zybo 210279A42D4BA' is selected.
+22:16:28 INFO  : 'jtag frequency' command is executed.
+22:16:28 INFO  : Context for 'APU' is selected.
+22:16:28 INFO  : System reset is completed.
+22:16:31 INFO  : 'after 3000' command is executed.
+22:16:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42D4BA" && level==0 && jtag_device_ctx=="jsn-Zybo-210279A42D4BA-13722093-0"}' command is executed.
+22:16:32 INFO  : Device configured successfully with "/home/user/lab3/vitis_workspace/adventures_with_ip/_ide/bitstream/ip_design_wrapper.bit"
+22:16:32 INFO  : Context for 'APU' is selected.
+22:16:32 INFO  : Hardware design and registers information is loaded from '/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/hw/ip_design_wrapper.xsa'.
+22:16:32 INFO  : 'configparams force-mem-access 1' command is executed.
+22:16:32 INFO  : Context for 'APU' is selected.
+22:16:32 INFO  : Sourcing of '/home/user/lab3/vitis_workspace/adventures_with_ip/_ide/psinit/ps7_init.tcl' is done.
+22:16:32 INFO  : 'ps7_init' command is executed.
+22:16:32 INFO  : 'ps7_post_config' command is executed.
+22:16:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:16:32 INFO  : The application '/home/user/lab3/vitis_workspace/adventures_with_ip/Debug/adventures_with_ip.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:16:32 INFO  : 'configparams force-mem-access 0' command is executed.
+22:16:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42D4BA" && level==0 && jtag_device_ctx=="jsn-Zybo-210279A42D4BA-13722093-0"}
+fpga -file /home/user/lab3/vitis_workspace/adventures_with_ip/_ide/bitstream/ip_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/hw/ip_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/user/lab3/vitis_workspace/adventures_with_ip/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/user/lab3/vitis_workspace/adventures_with_ip/Debug/adventures_with_ip.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:17:11 INFO  : Disconnected from the channel tcfchan#4.
+22:17:12 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:17:12 INFO  : Jtag cable 'Digilent Zybo 210279A42D4BA' is selected.
+22:17:12 INFO  : 'jtag frequency' command is executed.
+22:17:12 INFO  : Context for 'APU' is selected.
+22:17:12 INFO  : System reset is completed.
+22:17:15 INFO  : 'after 3000' command is executed.
+22:17:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42D4BA" && level==0 && jtag_device_ctx=="jsn-Zybo-210279A42D4BA-13722093-0"}' command is executed.
+22:17:16 INFO  : Device configured successfully with "/home/user/lab3/vitis_workspace/adventures_with_ip/_ide/bitstream/ip_design_wrapper.bit"
+22:17:16 INFO  : Context for 'APU' is selected.
+22:17:16 INFO  : Hardware design and registers information is loaded from '/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/hw/ip_design_wrapper.xsa'.
+22:17:16 INFO  : 'configparams force-mem-access 1' command is executed.
+22:17:16 INFO  : Context for 'APU' is selected.
+22:17:16 INFO  : Sourcing of '/home/user/lab3/vitis_workspace/adventures_with_ip/_ide/psinit/ps7_init.tcl' is done.
+22:17:17 INFO  : 'ps7_init' command is executed.
+22:17:17 INFO  : 'ps7_post_config' command is executed.
+22:17:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:17:17 INFO  : The application '/home/user/lab3/vitis_workspace/adventures_with_ip/Debug/adventures_with_ip.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:17:17 INFO  : 'configparams force-mem-access 0' command is executed.
+22:17:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42D4BA" && level==0 && jtag_device_ctx=="jsn-Zybo-210279A42D4BA-13722093-0"}
+fpga -file /home/user/lab3/vitis_workspace/adventures_with_ip/_ide/bitstream/ip_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper/hw/ip_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/user/lab3/vitis_workspace/adventures_with_ip/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/user/lab3/vitis_workspace/adventures_with_ip/Debug/adventures_with_ip.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:17:54 WARN  : channel "tcfchan#4" closed
+22:18:02 INFO  : Launching XSCT server: xsct -n  -interactive /home/user/lab3/vitis_workspace/temp_xsdb_launch_script.tcl
+22:18:04 INFO  : Platform repository initialization has completed.
+22:18:04 INFO  : Registering command handlers for Vitis TCF services
+22:18:06 INFO  : XSCT server has started successfully.
+22:18:06 INFO  : plnx-install-location is set to ''
+22:18:06 INFO  : Successfully done setting XSCT server connection channel  
+22:18:06 INFO  : Successfully done setting workspace for the tool. 
+22:18:06 INFO  : Successfully done query RDI_DATADIR 
+22:18:06 INFO  : Restoring local repository preferences: 
+		 /home/user/lab3/ip_repo/xilinx_com_hls_nco_1_0
+		 /home/user/lab3/ip_repo/led_controller_1.0
+		 /home/user/lab3/ip_repo

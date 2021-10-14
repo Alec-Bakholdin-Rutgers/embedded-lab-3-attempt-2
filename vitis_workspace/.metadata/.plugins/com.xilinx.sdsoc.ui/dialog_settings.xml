@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="sdx.custom.platform.repository.locations" value="/home/user/lab3/ip_repo/led_controller_1.0;/home/user/lab3/ip_repo/xilinx_com_hls_nco_1_0;/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper"/>
+	<item key="sdx.custom.platform.repository.last.directory.dialog.location" value="/home/user/lab3/vitis_workspace/ip_design_wrapper/export/ip_design_wrapper"/>
+</section>
