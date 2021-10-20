@@ -21,6 +21,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ip_design_p
 # IP: bd/ip_design/ip/ip_design_xbar_0/ip_design_xbar_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ip_design_xbar_0 || ORIG_REF_NAME==ip_design_xbar_0} -quiet] -quiet
 
+# IP: bd/ip_design/ip/ip_design_auto_pc_0/ip_design_auto_pc_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ip_design_auto_pc_0 || ORIG_REF_NAME==ip_design_auto_pc_0} -quiet] -quiet
+
 # IP: bd/ip_design/ip/ip_design_ps7_0_axi_periph_0/ip_design_ps7_0_axi_periph_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ip_design_ps7_0_axi_periph_0 || ORIG_REF_NAME==ip_design_ps7_0_axi_periph_0} -quiet] -quiet
 
@@ -36,7 +39,4 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ip_design_a
 # IP: bd/ip_design/ip/ip_design_axi_gpio_1_0/ip_design_axi_gpio_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ip_design_axi_gpio_1_0 || ORIG_REF_NAME==ip_design_axi_gpio_1_0} -quiet] -quiet
 
-# IP: bd/ip_design/ip/ip_design_auto_pc_0/ip_design_auto_pc_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ip_design_auto_pc_0 || ORIG_REF_NAME==ip_design_auto_pc_0} -quiet] -quiet
-
-# XDC: /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip_design_ooc.xdc
+# XDC: c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip_design_ooc.xdc

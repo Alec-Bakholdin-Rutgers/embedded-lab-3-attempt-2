@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/user/lab3/adventures_with_ip/adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc rfile:../../../adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc} rfile:../../../adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN M14 [get_ports {LEDs_out[0]}]
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]

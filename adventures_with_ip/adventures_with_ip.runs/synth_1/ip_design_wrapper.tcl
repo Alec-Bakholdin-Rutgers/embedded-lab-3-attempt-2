@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/user/lab3/adventures_with_ip/adventures_with_ip.runs/synth_1/ip_design_wrapper.tcl"
+  variable script "C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.runs/synth_1/ip_design_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,7 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param synth.incrementalSynthesisCache C:/Users/abakh/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-22660-ALEC-PC/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -78,37 +81,36 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/user/lab3/adventures_with_ip/adventures_with_ip.cache/wt [current_project]
-set_property parent.project_path /home/user/lab3/adventures_with_ip/adventures_with_ip.xpr [current_project]
+set_property webtalk.parent_dir {C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.cache/wt} [current_project]
+set_property parent.project_path {C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.xpr} [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part digilentinc.com:zybo:part0:2.0 [current_project]
 set_property ip_repo_paths {
-  /home/software/digilent
-  /home/user/lab3/ip_repo
+  {c:/College/2021 Fall/software/digilent}
+  {c:/College/2021 Fall/Embedded Systems 2/Lab 3/ip_repo}
 } [current_project]
 update_ip_catalog
-set_property ip_output_repo /home/user/lab3/adventures_with_ip/adventures_with_ip.cache/ip [current_project]
+set_property ip_output_repo {c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/hdl/ip_design_wrapper.v
-add_files /home/user/lab3/adventures_with_ip/adventures_with_ip.srcs/sources_1/bd/ip_design/ip_design.bd
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_nco_0_0/constraints/nco_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_processing_system7_0_0/ip_design_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_xbar_0/ip_design_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_rst_ps7_0_100M_0/ip_design_rst_ps7_0_100M_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_rst_ps7_0_100M_0/ip_design_rst_ps7_0_100M_0.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_rst_ps7_0_100M_0/ip_design_rst_ps7_0_100M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_0_0/ip_design_axi_gpio_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_0_0/ip_design_axi_gpio_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_0_0/ip_design_axi_gpio_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_1_0/ip_design_axi_gpio_1_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_1_0/ip_design_axi_gpio_1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_1_0/ip_design_axi_gpio_1_0.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_auto_pc_0/ip_design_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/user/lab3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip_design_ooc.xdc]
+read_verilog -library xil_defaultlib {{C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/hdl/ip_design_wrapper.v}}
+add_files {{C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.srcs/sources_1/bd/ip_design/ip_design.bd}}
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_nco_0_0/constraints/nco_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_processing_system7_0_0/ip_design_processing_system7_0_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_xbar_0/ip_design_xbar_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_auto_pc_0/ip_design_auto_pc_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_rst_ps7_0_100M_0/ip_design_rst_ps7_0_100M_0_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_rst_ps7_0_100M_0/ip_design_rst_ps7_0_100M_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_rst_ps7_0_100M_0/ip_design_rst_ps7_0_100M_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_0_0/ip_design_axi_gpio_0_0_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_0_0/ip_design_axi_gpio_0_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_0_0/ip_design_axi_gpio_0_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_1_0/ip_design_axi_gpio_1_0_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_1_0/ip_design_axi_gpio_1_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip/ip_design_axi_gpio_1_0/ip_design_axi_gpio_1_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.gen/sources_1/bd/ip_design/ip_design_ooc.xdc}}]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -119,8 +121,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/user/lab3/adventures_with_ip/adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc
-set_property used_in_implementation false [get_files /home/user/lab3/adventures_with_ip/adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc]
+read_xdc {{C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc}}
+set_property used_in_implementation false [get_files {{C:/College/2021 Fall/Embedded Systems 2/Lab 3/adventures_with_ip/adventures_with_ip.srcs/constrs_1/imports/constraints/adventures_with_ip.xdc}}]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
